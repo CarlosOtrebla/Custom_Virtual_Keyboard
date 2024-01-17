@@ -6,7 +6,7 @@ let mapedKeys = [];
 let audio = new Audio();  // Create an Audio object without an initial source
 
 const playTune = (key) => {
-    const audioSrc = `src/audio/${key}.wav`;
+    +    const audioSrc = `src/Audio/${key}.wav`;
 
     // Set the source and load the audio
     audio.src = audioSrc;
