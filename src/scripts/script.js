@@ -3,29 +3,32 @@ const volumeSlider = document.querySelector(".volume-slider input");
 const keysCheck = document.querySelector(".keys-check input[type='checkbox']");
 
 let mapedKeys = [];
-let audio = new Audio();  // Create an Audio object without an initial source
+let activeAudioObjects = {};
 
 const _playTune = (key) => {
-        const audioSrc = `src/Audio/${key}.wav`;
+    const audioSrc = `src/Audio/${key}.wav`;
 
-    // Set the source and load the audio
+    // Create a new Audio object for each note
+    const audio = new Audio();
     audio.src = audioSrc;
-    audio.load();
+    audio.volume = volumeSlider.value;
 
-    // Ensure the audio is loaded before playing
-    audio.addEventListener('loadeddata', () => {
-        audio.play();
-    });
+    activeAudioObjects[key] = audio;
+
+    // Play the notes
+    audio.play();
 
     const clickedKey = document.querySelector(`[data-key="${key}"]`);
     clickedKey.classList.add("active");
     setTimeout(() => {
         clickedKey.classList.remove("active");
-    }, 150);
+    }, 300);
 };
 
 pianoKeys.forEach((key) => {
-    key.addEventListener("click", () => _playTune(key.dataset.key));
+    key.addEventListener("click", (event) => {
+        _playTune(event.target.dataset.key);
+    });
     mapedKeys.push(key.dataset.key);
 });
 
@@ -36,7 +39,10 @@ document.addEventListener("keydown", (e) => {
 });
 
 const handleVolume = (e) => {
-    audio.volume = e.target.value;
+    // Update the volume of all active notes
+    Object.values(activeAudioObjects).forEach((audio) => {
+        audio.volume = e.target.value;
+    });
 };
 
 const showHideKeys = () => {
