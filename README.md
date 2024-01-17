@@ -15,7 +15,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 A aplicação foi inspirada nas extensões VSTs ultilizadas pelos engenheiros de áudio nas Digital Audio Workstations (DAWs), e apresenta os seguintes recursos. <br>
 
-### Features: <br>
+### 🎀 Features: <br>
 <ol>
 <li>User Interface customizada para melhor estética do instrumento.</li>
 <li>Plano de fundo temático.</li>
