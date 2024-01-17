@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;400;700&display=swap" rel="stylesheet">
+
+    <!-- estilos -->
+    <link rel="stylesheet" href="./src/styles/reset.css">
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <title>Virtual Keyboard</title>
+</head>
+<body>
+    <div class="container">
+        <span class="logo">
+            <img src="./src/images/JS-logo.png" alt="logo javascript">
+        </span>
+        <header>
+            <h2 id="jago">Jago's Keyboard</h2>
+            <!-- volume slider estava aqui -->
+            <div class="column keys-check">
+                <span>Hidden</span> <input type="checkbox">
+            </div>
+        </header>
+        
+    <div class="piano-row">
+        <ul class="piano-keys">
+            <li class="key white" data-key="a"><span>a</span></li>
+            <li class="key black" data-key="w"><span>w</span></li>
+            <li class="key white" data-key="s"><span>s</span></li>
+            <li class="key black" data-key="e"><span>e</span></li>
+            <li class="key white" data-key="d"><span>d</span></li>
+            <li class="key black" data-key="f"><span>f</span></li>
+            <li class="key white" data-key="t"><span>t</span></li>
+            <li class="key black" data-key="g"><span>g</span></li>
+            <li class="key white" data-key="y"><span>y</span></li>
+            <li class="key black" data-key="h"><span>h</span></li>
+            <li class="key white" data-key="u"><span>u</span></li>
+            <li class="key black" data-key="j"><span>j</span></li>
+            <li class="key white" data-key="k"><span>k</span></li>
+            <li class="key black" data-key="o"><span>o</span></li>
+            <li class="key white" data-key="l"><span>l</span></li>
+            <li class="key black" data-key="p"><span>p</span></li>
+            <li class="key white" data-key=";"><span>;</span></li>
+        </ul>
+
+        <div class="volume-slider">
+            <span>Volume</span>
+            <input class="knob" type="range" min="0" max="1" value="0.5" step="any">
+        </div>
+    </div>
+
+    
+
+
+    <script src="./src/scripts/script.js"></script>
+</body>
+</html>
