@@ -13,7 +13,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [HTML](<https://developer.mozilla.org/pt-BR/docs/Learn/HTML>)
 - [CSS](<https://developer.mozilla.org/pt-BR/docs/Learn/CSS>)
 
-A aplicação foi inspirada nas extensões VSTs ultilizadas pelos engenheiros de áudio nas Digital Audio Workstations (DAWs), e apresenta os seguintes recursos. <br>
+A aplicação foi inspirada nas extensões VSTs utilizadas pelos engenheiros de áudio nas Digital Audio Workstations (DAWs), e apresenta os seguintes recursos. <br>
 
 ### 🎀 Features: <br>
 <ol>
