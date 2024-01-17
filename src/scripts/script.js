@@ -5,8 +5,8 @@ const keysCheck = document.querySelector(".keys-check input[type='checkbox']");
 let mapedKeys = [];
 let audio = new Audio();  // Create an Audio object without an initial source
 
-const playTune = (key) => {
-    +    const audioSrc = `src/Audio/${key}.wav`;
+const _playTune = (key) => {
+        const audioSrc = `src/Audio/${key}.wav`;
 
     // Set the source and load the audio
     audio.src = audioSrc;
@@ -25,13 +25,13 @@ const playTune = (key) => {
 };
 
 pianoKeys.forEach((key) => {
-    key.addEventListener("click", () => playTune(key.dataset.key));
+    key.addEventListener("click", () => _playTune(key.dataset.key));
     mapedKeys.push(key.dataset.key);
 });
 
 document.addEventListener("keydown", (e) => {
     if (mapedKeys.includes(e.key)) {
-        playTune(e.key);
+        _playTune(e.key);
     }
 });
 
