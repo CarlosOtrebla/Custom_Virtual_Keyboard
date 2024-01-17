@@ -1,19 +1,21 @@
-const states = {
-    view: {
-        showKeys: document.querySelector(".keys-check"),
-        volume: document.querySelector(".knob"),
-        pianoKeys: document.querySelectorAll(".piano-keys .key"),
-    },
-    value: {
-        volume: 0.5,
-        supportKeys: [],
-    },
-};
+const pianoKeys = document.querySelectorAll(".piano-keys .key");
+const volumeSlider = document.querySelector(".volume-slider input");
+const keysCheck = document.querySelector(".keys-check input[type='checkbox']");
 
-const playSound = (key) => {
-    const audio = new Audio(`src/audio/${key}.wav`);
-    audio.volume = states.value.volume;
-    audio.play();
+let mapedKeys = [];
+let audio = new Audio();  // Create an Audio object without an initial source
+
+const playTune = (key) => {
+    const audioSrc = `src/audio/${key}.wav`;
+
+    // Set the source and load the audio
+    audio.src = audioSrc;
+    audio.load();
+
+    // Ensure the audio is loaded before playing
+    audio.addEventListener('loadeddata', () => {
+        audio.play();
+    });
 
     const clickedKey = document.querySelector(`[data-key="${key}"]`);
     clickedKey.classList.add("active");
@@ -22,26 +24,24 @@ const playSound = (key) => {
     }, 150);
 };
 
-const handleVolumeChange = (e) => {
-    states.value.volume = e.currentTarget.value;
-};
-
-const showHideKeys = () => {
-    states.view.pianoKeys.forEach((key) => {
-        key.classList.toggle("hide");
-    });
-};
-
-states.view.pianoKeys.forEach((key) => {
-    key.addEventListener("click", () => playSound(key.dataset.key));
-    states.value.supportKeys.push(key.dataset.key);
+pianoKeys.forEach((key) => {
+    key.addEventListener("click", () => playTune(key.dataset.key));
+    mapedKeys.push(key.dataset.key);
 });
 
 document.addEventListener("keydown", (e) => {
-    if (states.value.supportKeys.includes(e.key)) {
-        playSound(e.key);
+    if (mapedKeys.includes(e.key)) {
+        playTune(e.key);
     }
 });
 
-states.view.volume.addEventListener("input", handleVolumeChange);
-states.view.showKeys.addEventListener("click", showHideKeys);
+const handleVolume = (e) => {
+    audio.volume = e.target.value;
+};
+
+const showHideKeys = () => {
+    pianoKeys.forEach((key) => key.classList.toggle("hide"));
+};
+
+volumeSlider.addEventListener("input", handleVolume);
+keysCheck.addEventListener("click", showHideKeys);
