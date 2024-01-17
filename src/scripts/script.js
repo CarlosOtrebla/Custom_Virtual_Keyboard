@@ -2,7 +2,7 @@ const pianoKeys = document.querySelectorAll(".piano-keys .key");
 const volumeSlider = document.querySelector(".knob");
 const keysCheck = document.querySelector(".keys-check");
 
-let audio = new Audio("src/audio/a.wav");
+let audio = new Audio("src/Audio/a.wav");
 
 let mapedKeys = [];
 
